@@ -43,7 +43,7 @@ export default class ItemsList extends Component {
                     this.setState({
                         items: response.data
                     });
-                    console.log(response.data);
+                    console.log("DATA: ", response.data);
                 }
             ).
             catch(e => {
@@ -91,7 +91,7 @@ export default class ItemsList extends Component {
 
     render() {
 
-        const { searchUsername, items, currentIndex } = this.state;
+        const { searchUsername, items, currentItem, currentIndex } = this.state;
 
         return (
             <div className="list row">
@@ -115,7 +115,8 @@ export default class ItemsList extends Component {
                         </div>
                     </div>
                 </div>
-                <div className='list-group'>
+                <div className='col-md-6'>
+                    <h4>Items list</h4>
                     <ul className="list-group">
                         {
                             items &&
@@ -131,6 +132,7 @@ export default class ItemsList extends Component {
                                     {item.name}
                                 </li>
                             })
+
                         }
                     </ul>
                 </div>

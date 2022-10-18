@@ -102,6 +102,7 @@ export default class AddItem extends Component {
                                 className="form-control"
                                 id="todoId"
                                 value={this.state.todoId}
+                                onChange={this.onChangeTodoId}
                                 name="todoId"
                             />
                         </div>
@@ -112,6 +113,7 @@ export default class AddItem extends Component {
                                 className="form-control"
                                 id="symbol"
                                 value={this.state.symbol}
+                                onChange={this.onChangeSymbol}
                                 name="symbol"
                             />
                         </div>
@@ -122,6 +124,7 @@ export default class AddItem extends Component {
                                 className="form-control"
                                 id="name"
                                 value={this.state.name}
+                                onChange={this.onChangeName}
                                 name="name"
                             />
                         </div>
