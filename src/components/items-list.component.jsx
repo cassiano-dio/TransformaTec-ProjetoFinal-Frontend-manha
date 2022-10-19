@@ -75,7 +75,7 @@ export default class ItemsList extends Component {
             currentItem: null,
         })
 
-        ItemDataService.findByUserName(this.state.searchUsername)
+        ItemDataService.findUsername(this.state.searchUsername)
             .then(
                 response => {
                     this.setState({
@@ -120,7 +120,7 @@ export default class ItemsList extends Component {
                     <ul className="list-group">
                         {
                             items &&
-                            items.map((item, index) => {
+                            items.map((item, index) =>( 
                                 <li
                                     className={
                                         "list-group-item " +
@@ -131,8 +131,7 @@ export default class ItemsList extends Component {
                                 >
                                     {item.name}
                                 </li>
-                            })
-
+                            ))
                         }
                     </ul>
                 </div>
@@ -142,23 +141,20 @@ export default class ItemsList extends Component {
                     {
                         currentItem ? (
                             <div>
+                                <h4>Item</h4>
                                 <div>
-                                    <h4>Item</h4>
-                                    <div>
-                                        <label htmlFor="name">Name</label>
-                                    </div>
+                                    <label htmlFor="name">Name</label>
+                                    {" "}
                                     {currentItem.name}
                                 </div>
                                 <div>
-                                    <h4>Item</h4>
-                                    <div>
-                                        <label htmlFor="price">Price</label>
-                                    </div>
+                                    <label htmlFor="price">Price</label>
+                                    {" "}
                                     {currentItem.price}
                                 </div>
                                 <Link
                                     to={"/items/" + currentItem.id}
-                                    className="badge badge-warning"
+                                    className="btn btn-warning"
                                 >
                                     Editar
                                 </Link>

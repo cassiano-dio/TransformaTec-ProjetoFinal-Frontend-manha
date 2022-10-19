@@ -72,7 +72,7 @@ export default class AddItem extends Component {
             id: null,
             name: "",
             symbol: "",
-            todoId:"",
+            todoId:null,
             price: null,
             description: "",
             status: false,
@@ -98,7 +98,7 @@ export default class AddItem extends Component {
                         <div className="form-group">
                             <label htmlFor="todoId">Todo Id</label>
                             <input 
-                                type="number"
+                                type="text"
                                 className="form-control"
                                 id="todoId"
                                 value={this.state.todoId}
@@ -123,8 +123,8 @@ export default class AddItem extends Component {
                                 type="text"
                                 className="form-control"
                                 id="name"
-                                value={this.state.name}
                                 onChange={this.onChangeName}
+                                value={this.state.name}
                                 name="name"
                             />
                         </div>

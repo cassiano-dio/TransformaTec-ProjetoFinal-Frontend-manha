@@ -15,7 +15,7 @@ class Item extends Component {
     constructor(props) {
 
         super(props);
-        this.onChangeUsername = this.onChangeUsername.bind(this);
+        this.onChangeusername = this.onChangeusername.bind(this);
         this.onChangeName = this.onChangeName.bind(this);
         this.onChangePrice = this.onChangePrice.bind(this);
         this.onChangeDescription = this.onChangeDescription.bind(this);
@@ -28,7 +28,7 @@ class Item extends Component {
         this.state = {
             currentItem: {
                 id: null,
-                userName: "",
+                username: "",
                 name: "",
                 price: null,
                 description: "",
@@ -66,7 +66,7 @@ class Item extends Component {
         }));
     };
 
-    onChangeUsername(e) {
+    onChangeusername(e) {
 
         const username = e.target.value;
 
@@ -122,11 +122,7 @@ class Item extends Component {
 
         ItemDataService.update(
             this.state.currentItem.id,
-            this.state.currentItem.name,
-            this.state.currentItem.userName,
-            this.state.currentItem.price,
-            this.state.currentItem.status,
-            this.state.currentItem.description
+            this.state.currentItem
         ).then(response => {
             console.log(response.data);
             this.setState({
@@ -157,7 +153,7 @@ class Item extends Component {
 
         // this.state.currentItem.id,
         // this.state.currentItem.name,
-        // this.state.currentItem.userName,
+        // this.state.currentItem.username,
         // this.state.currentItem.price,
         // this.state.currentItem.status,
         // this.state.currentItem.description
@@ -181,13 +177,13 @@ class Item extends Component {
                                     />
                                 </div>
                                 <div className='form-group'>
-                                    <label htmlFor="userName"></label>
+                                    <label htmlFor="username"></label>
                                     <input
                                         type="text"
                                         className='form-control'
-                                        id='userName'
-                                        value={currentItem.userName}
-                                        onChange={this.onChangeUsername}
+                                        id='username'
+                                        value={currentItem.username}
+                                        onChange={this.onChangeusername}
                                     />
                                 </div>
                                 <div className='form-group'>
@@ -233,14 +229,14 @@ class Item extends Component {
 
                             </form>
                             <button
-                                className="badge badge-danger mr-2"
+                                className="btn btn-warning"
                                 onClick={this.deleteItem}
                             >
                                 Delete
                             </button>
                             <button
                                 type="submit"
-                                className="badge badge-success"
+                                className="btn btn-success"
                                 onClick={this.updateItem}
                             >
                                 Update
