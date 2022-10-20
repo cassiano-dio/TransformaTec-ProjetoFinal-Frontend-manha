@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-
-import UserService from "../services/user.service";
+import React, {useState, useEffect} from 'react';
+import UserService from '../services/user.service';
 
 const Home = () => {
 
@@ -9,7 +8,9 @@ const Home = () => {
     useEffect(() => {
         UserService.getPublicContent().then(
             (response) => {
+                console.log(response.data);
                 setContent(response.data);
+                console.log(content);
             },
             (error) => {
                 const _content =
@@ -20,16 +21,16 @@ const Home = () => {
                 setContent(_content);
             }
         )
-    }, []);
+    },[]);
 
     return (
         <div className="container">
-            <header className="jumbotron">
-                {/* <h4>{content}</h4> */}
+            <header className="jumbotron"> 
+                Seja bem vindo!
             </header>
         </div>
     )
 
-}
+};
 
 export default Home;

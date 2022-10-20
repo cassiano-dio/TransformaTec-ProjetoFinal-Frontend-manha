@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import ItemDataService from "../services/item.service";
+import AuthService from "../services/auth.service";
 
 export default class AddItem extends Component {
 
@@ -8,6 +9,7 @@ export default class AddItem extends Component {
         this.onChangeTodoId = this.onChangeTodoId.bind(this);
         this.onChangeSymbol = this.onChangeSymbol.bind(this);
         this.onChangeName = this.onChangeName.bind(this);
+        //this.onChangeUsername = this.onChangeUsername.bind(this);
 
         this.saveItem = this.saveItem.bind(this);
         this.newItem = this.newItem.bind(this);
@@ -19,6 +21,7 @@ export default class AddItem extends Component {
             todoId:"",
             price: null,
             description: "",
+            //username: "",
             status: false,
 
             submitted: false
@@ -36,13 +39,20 @@ export default class AddItem extends Component {
     onChangeName(e){
         this.setState({name: e.target.value});
     }
+
+    // onChangeUsername(e){
+    //     this.setState({username: e.target.value});
+    // }
     
     saveItem(){
+
+        const currentUser = AuthService.getCurrentUser();
 
         var data = {
             todoId: this.state.todoId,
             name: this.state.name,
-            symbol: this.state.symbol
+            symbol: this.state.symbol,
+            username: currentUser.username
         }
 
         ItemDataService.create(data)
@@ -55,7 +65,7 @@ export default class AddItem extends Component {
                         price: response.data.price,
                         description: response.data.description,
                         status: response.data.status,
-
+                        //username: response.data.username,
                         submitted: true
                     });
                     console.log(response.data)
@@ -76,7 +86,7 @@ export default class AddItem extends Component {
             price: null,
             description: "",
             status: false,
-
+            //username:"",
             submitted: false
         });
     }
@@ -96,7 +106,7 @@ export default class AddItem extends Component {
                 ): (
                     <div>
                         <div className="form-group">
-                            <label htmlFor="todoId">Todo Id</label>
+                            <label htmlFor="todoId">Id do TODO</label>
                             <input 
                                 type="text"
                                 className="form-control"
@@ -107,7 +117,7 @@ export default class AddItem extends Component {
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="symbol">Symbol</label>
+                            <label htmlFor="symbol">Símbolo</label>
                             <input 
                                 type="text"
                                 className="form-control"
@@ -118,7 +128,7 @@ export default class AddItem extends Component {
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="name">Name</label>
+                            <label htmlFor="name">Nome do item</label>
                             <input 
                                 type="text"
                                 className="form-control"
@@ -128,6 +138,18 @@ export default class AddItem extends Component {
                                 name="name"
                             />
                         </div>
+                        {/* <div className="form-group">
+                            <label htmlFor="name">Username</label>
+                            <input 
+                                type="text"
+                                className="form-control"
+                                id="username"
+                                onChange={this.onChangeUsername}
+                                value={this.state.username}
+                                name="username"
+                            />
+                        </div> */}
+                        <br />
                         <button onClick={this.saveItem} className="btn btn-success">
                             Registrar
                         </button>

@@ -10,13 +10,14 @@ const required = (value) => {
     if (!value) {
         return (
             <div className="invalid-feedback d-block">
-                This field is required!
+                Campo obrigatório
             </div>
         );
     }
 };
 
 const Login = () => {
+    
     const form = useRef();
     const checkBtn = useRef();
 
@@ -79,7 +80,7 @@ const Login = () => {
 
                 <Form onSubmit={handleLogin} ref={form}>
                     <div className="form-group">
-                        <label htmlFor="username">Username</label>
+                        <label htmlFor="username">Usuário</label>
                         <Input
                             type="text"
                             className="form-control"
@@ -91,7 +92,7 @@ const Login = () => {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password">Senha</label>
                         <Input
                             type="password"
                             className="form-control"
@@ -102,6 +103,7 @@ const Login = () => {
                         />
                     </div>
 
+                    <br />
                     <div className="form-group">
                         <button className="btn btn-primary btn-block" disabled={loading}>
                             {loading && (

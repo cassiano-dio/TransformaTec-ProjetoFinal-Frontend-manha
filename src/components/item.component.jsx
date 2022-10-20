@@ -167,7 +167,7 @@ class Item extends Component {
                             <form >
 
                                 <div className='form-group'>
-                                    <label htmlFor="name"></label>
+                                    <label htmlFor="name"> Nome do Item</label>
                                     <input
                                         type="text"
                                         className='form-control'
@@ -177,7 +177,7 @@ class Item extends Component {
                                     />
                                 </div>
                                 <div className='form-group'>
-                                    <label htmlFor="username"></label>
+                                    <label htmlFor="username">Usuário do Item</label>
                                     <input
                                         type="text"
                                         className='form-control'
@@ -187,7 +187,7 @@ class Item extends Component {
                                     />
                                 </div>
                                 <div className='form-group'>
-                                    <label htmlFor="price"></label>
+                                    <label htmlFor="price">Preço</label>
                                     <input
                                         type="number"
                                         className='form-control'
@@ -197,7 +197,7 @@ class Item extends Component {
                                     />
                                 </div>
                                 <div className='form-group'>
-                                    <label htmlFor="status"></label>
+                                    <label htmlFor="status">Status</label>
                                     <input
                                         type="text"
                                         className='form-control'
@@ -207,17 +207,7 @@ class Item extends Component {
                                     />
                                 </div>
                                 <div className='form-group'>
-                                    <label htmlFor="name"></label>
-                                    <input
-                                        type="text"
-                                        className='form-control'
-                                        id='name'
-                                        value={currentItem.name}
-                                        onChange={this.onChangeName}
-                                    />
-                                </div>
-                                <div className='form-group'>
-                                    <label htmlFor="description"></label>
+                                    <label htmlFor="description">Descrição do item</label>
                                     <input
                                         type="text"
                                         className='form-control'
@@ -228,7 +218,8 @@ class Item extends Component {
                                 </div>
 
                             </form>
-                            <button
+                            <br />
+                            <button 
                                 className="btn btn-warning"
                                 onClick={this.deleteItem}
                             >
