@@ -24,10 +24,13 @@ const Home = () => {
     },[]);
 
     return (
-        <div className="container">
-            <header className="jumbotron"> 
-                Seja bem vindo!
-            </header>
+        <div className="col-md-12">
+
+            <div className="card " >
+                
+                <h4 >Seja bem vindo ao nosso sistema de registro de itens</h4>
+                
+            </div>
         </div>
     )
 

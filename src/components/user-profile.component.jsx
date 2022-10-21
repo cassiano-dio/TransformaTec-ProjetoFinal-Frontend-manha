@@ -4,7 +4,8 @@ import AuthService from "../services/auth.service";
 const Profile = () => {
 
     const mainContainer = {
-        backgroundColor: 'cadetblue'
+        backgroundColor: 'cornsilk',
+        borderRadius: '5px'
     }
 
     const currentUser = AuthService.getCurrentUser();

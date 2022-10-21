@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import ItemDataService from "../services/item.service";
 import AuthService from "../services/auth.service";
+import SubmitButton from "./SubmitButton";
 
 export default class AddItem extends Component {
 
@@ -150,9 +151,9 @@ export default class AddItem extends Component {
                             />
                         </div> */}
                         <br />
-                        <button onClick={this.saveItem} className="btn btn-success">
+                        <SubmitButton onClick={this.saveItem} >
                             Registrar
-                        </button>
+                        </SubmitButton>
                     </div>
                 )
             }

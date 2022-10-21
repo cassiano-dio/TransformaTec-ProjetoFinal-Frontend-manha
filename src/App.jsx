@@ -10,12 +10,13 @@ import Register from "./components/register.component";
 import Profile from "./components/user-profile.component";
 import Home from "./components/home.component";
 
-// import AddItem from "./components/add-item.component";
-// import Item from "./components/item.component";
-// import ItemsList from "./components/items-list.component";
+import AddItem from "./components/add-item.component";
+import Item from "./components/item.component";
+import ItemsList from "./components/items-list.component";
 
 import EventBus from "./common/event-bus";
 
+import styles from "./styles/styles.module.css"
 
 const App = () => {
 
@@ -58,7 +59,17 @@ const App = () => {
           <div className="navbar-nav ml-auto">
             <li className="nav-item">
               <Link to={"/profile"} className="nav-link">
-                {currentUser.username}
+                <strong>{currentUser.username}</strong>  
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={"/items"} className="nav-link">
+                Itens
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={"/add"} className="nav-link">
+                Novo Item
               </Link>
             </li>
             <li className="nav-item">
@@ -66,6 +77,7 @@ const App = () => {
                 LogOut
               </a>
             </li>
+            
           </div>
         ) : (
           <div className="navbar-nav ml-auto">
@@ -92,6 +104,9 @@ const App = () => {
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/register" element={<Register />} />
             <Route exact path="/profile" element={<Profile />} />
+            <Route path="/items" element={<ItemsList />}/>
+            <Route path="/add" element={<AddItem />} />
+            <Route path="/items/:id" element={<Item />} />
           </Routes>
 
       </div>

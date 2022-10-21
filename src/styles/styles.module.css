@@ -1,0 +1,10 @@
+body {
+    background-color: cornflowerblue;
+}
+
+p{
+    background-color: beige;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
